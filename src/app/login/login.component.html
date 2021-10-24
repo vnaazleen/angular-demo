@@ -1,16 +1,25 @@
-<h1>Login</h1>
-<form #loginForm = "ngForm" (ngSubmit) = "loginSubmit1(loginForm)" novalidate>
-    Enter Login id: <input type="text" name="loginId" ngModel required #loginId="ngModel" minlength="2" maxlength="8"><br/>
-    Enter password: <input type="password" name="password" ngModel required #password="ngModel" minlength="2" maxlength="8"><br/>
-    <button [disabled] = "!loginForm.valid">Login</button>
-</form>
+<div align="center">
+    <form class="border border-light p-5" #loginForm = "ngForm" (ngSubmit) = "loginSubmit1(loginForm)" novalidate>
+        <h1>Login</h1>
 
-<br/>
-<div class="alert">
-    <div *ngIf = "loginId.errors?.required && loginId.touched"> Please enter login id</div>
-    <div *ngIf = "password.errors?.required && password.touched"> Please enter password</div>
-    <div *ngIf = "loginId.errors?.minlength && loginId.touched">Login id should have minimum 2 characters</div>
-    <div *ngIf = "password.errors?.minlength && password.touched">password should have minimum 2 characters</div>
-    <div *ngIf = "loginId.errors?.maxlength && loginId.touched">Login id should have maximum 8 characters</div>
-    <div *ngIf = "password.errors?.maxlength && password.touched">password should have maximum 8 characters</div>
+        <div class="form-group col-md-4 mt-3">
+                <input class="form-control" type="text" name="loginId" placeholder="Login Id" ngModel required #loginId="ngModel" minlength="2" maxlength="8">
+        </div>
+        
+        <div class="form-group col-md-4 mt-3">
+                <input class="form-control" type="password" name="password" placeholder="Password" ngModel required #password="ngModel" minlength="2" maxlength="8">
+        </div>
+
+
+        <button [disabled] = "!loginForm.valid" class="btn btn-primary mt-3 mb-3">Login</button>
+
+        <div class="col-md-4">
+            <div class="alert alert-danger" *ngIf = "loginId.errors?.required && loginId.touched"> Please enter login id</div>
+            <div class="alert alert-danger" *ngIf = "password.errors?.required && password.touched"> Please enter password</div>
+            <div class="alert alert-danger" *ngIf = "loginId.errors?.minlength && loginId.touched">Login id should have minimum 2 characters</div>
+            <div class="alert alert-danger" *ngIf = "password.errors?.minlength && password.touched">password should have minimum 2 characters</div>
+            <div class="alert alert-danger" *ngIf = "loginId.errors?.maxlength && loginId.touched">Login id should have maximum 8 characters</div>
+            <div class="alert alert-danger" *ngIf = "password.errors?.maxlength && password.touched">password should have maximum 8 characters</div>
+        </div>
+    </form>
 </div>
