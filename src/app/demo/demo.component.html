@@ -1,0 +1,20 @@
+<!-- One way data binding -->
+<p>My Name is {{name}}</p>
+<p>My Age: {{age}}</p>
+
+<p>My hobbies are</p>
+<ul> 
+    <li *ngFor = "let hobby of hobbies">{{hobby}}</li> <!-- For each loop-->
+</ul>
+
+<!-- To use object attributes object_name.attribute_name -->
+<p>My friend name is {{friend.name}}, she is {{age}} years old.</p>
+
+<!-- () -> event binding
+     [] -> property binding -->
+<!-- input will be automatically stored in message variable-->
+Enter your fav food: <input type="text" [(ngModel)]="message">  <!-- Two way databinding-->
+<p>Your fav food is {{message}}</p> <!-- displayed simultaneously here-->
+
+<!-- invoking method on button click -->
+<button (click)="showButtonClicked()">Click me!</button>

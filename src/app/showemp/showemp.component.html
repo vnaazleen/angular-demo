@@ -1,0 +1,16 @@
+<h1 align="center">Employee Details</h1>
+
+<table border=2 align="center">
+    <th *ngFor="let header of headers">
+        {{header}}
+    </th>
+    <tr *ngFor="let employee of employees">
+        <td>{{employee["empId"]}}</td>
+        <td>{{employee["empName"] }}</td>
+        <td>{{employee["gender"] | uppercase}}</td>
+        <td>{{employee["salary"] | currency: 'INR'}}</td>
+        <td>{{employee["doj"]| date:'dd-MMMM-yy'}}</td>
+        <td>{{employee["doj"] | experience }}</td>
+        <td>{{employee | phoneno }}</td>
+    </tr>
+</table>
