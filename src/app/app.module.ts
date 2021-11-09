@@ -12,6 +12,9 @@ import { ExperiencePipe } from './experience.pipe';
 import { PhonenoPipe } from './phoneno.pipe';
 import { HeaderComponent } from './header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductComponent } from './product/product.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HrPageComponent } from './hr-page/hr-page.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegisterComponent,
     ExperiencePipe,
     PhonenoPipe,
-    HeaderComponent
+    HeaderComponent,
+    ProductComponent,
+    HrPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

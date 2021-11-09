@@ -1,5 +1,6 @@
-import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   employee: any;
 
-  constructor() { 
+  constructor(private router: Router, private authGuard: AuthGuard) { 
     this.loginId = "";
     this.password = "";
 
@@ -42,12 +43,13 @@ export class LoginComponent implements OnInit {
     console.log(this.loginId + " - " + this.password);
 
     if(this.loginId === "hr" && this.password === "hr") {
-      alert("Welcome hr!")
+      this.authGuard.setUserLoggedIn();
+      this.router.navigate(['hrpage'])
     } else {
       let isEmployee = false;
       this.employee.forEach((employee: any) => {
-        console.log(employee)
         if((this.loginId === employee.empName) && (this.password === employee.password)) {
+          this.authGuard.setUserLoggedIn();
           alert("Welcome employee!");
           isEmployee = true;
         }
