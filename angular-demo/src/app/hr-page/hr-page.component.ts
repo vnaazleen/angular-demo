@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-hr-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HrPageComponent implements OnInit {
 
-  constructor() { }
+  countries: any;
+
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.countries = this.employeeService.getCountries();
+    console.log(this.countries)
   }
-
 }

@@ -22,6 +22,7 @@ const appRoot:  Routes = [
   }, 
   {
     path: 'login', 
+    canActivate:[!AuthGuard],
     component: LoginComponent
   },
   {
